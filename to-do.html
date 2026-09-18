@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To Do List</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            padding-top: 80px;
+        }
+
+        .container {
+            width: 400px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        #task {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        ul {
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            list-style: none;
+            background: #f9fafb;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+        }
+
+        li input {
+            margin-right: 10px;
+        }
+
+        li:has(input:checked) {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>📝 My To-Do List</h2>
+
+        <div class="input-box">
+            <input id="task" placeholder="Enter your task">
+            <button onclick="add()">Add</button>
+        </div>
+
+        <ul id="list"></ul>
+
+    </div>
+
+
+    <script>
+
+        function add() {
+
+            let task = document.getElementById("task").value;
+
+            if (task == "") {
+                return;
+            }
+
+            document.getElementById("list").innerHTML +=
+                "<li><input type='checkbox'> " + task + "</li>";
+
+            document.getElementById("task").value = "";
+        }
+
+    </script>
+
+</body>
+</html>
